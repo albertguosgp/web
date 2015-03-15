@@ -25,5 +25,8 @@
         <module name="lotus-web" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="lotus-web" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>

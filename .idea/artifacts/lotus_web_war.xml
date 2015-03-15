@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="lotus-web:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="lotus-web.war">
+    <root id="archive" name="petclinic.war">
       <element id="artifact" artifact-name="lotus-web:war exploded" />
     </root>
   </artifact>
