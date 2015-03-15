@@ -5,8 +5,8 @@
     <artifactId>lotus-web</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>lotus-web Maven Webapp</name>
-
+    <name>lotus-web</name>
+    <url>lotus-web</url>
     <properties>
         <!-- Generic properties -->
         <java.version>1.6</java.version>
@@ -68,6 +68,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+        <dependency>
             <groupId>org.jadira.usertype</groupId>
             <artifactId>usertype.core</artifactId>
             <version>${jadira-usertype-core.version}</version>
@@ -78,6 +83,12 @@
             <version>${tomcat.servlet.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.10</version>
+        </dependency>
+
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
@@ -293,7 +304,6 @@
             <scope>runtime</scope>
         </dependency>
 
-
         <!-- Dandelion -->
         <dependency>
             <groupId>com.github.dandelion</groupId>
@@ -350,6 +360,7 @@
     <!-- Maven plugin versions are mentioned in order to guarantee the build reproducibility in the long term -->
     <build>
         <defaultGoal>install</defaultGoal>
+
         <testResources>
             <testResource>
                 <!-- declared explicitly so Spring config files can be placed next to their corresponding JUnit test class
@@ -360,6 +371,12 @@
                 <directory>${project.basedir}/src/test/resources</directory>
             </testResource>
         </testResources>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -390,33 +407,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
-                    <warName>petclinic</warName>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-eclipse-plugin</artifactId>
-                <version>2.9</version>
-                <configuration>
-                    <downloadSources>true</downloadSources>
-                    <downloadJavadocs>true</downloadJavadocs>
-                    <wtpversion>2.0</wtpversion>
-                    <sourceIncludes>
-                        <sourceInclude>**/*.*</sourceInclude>
-                    </sourceIncludes>
-                    <additionalBuildcommands>
-                        <buildCommand>
-                            <name>org.springframework.ide.eclipse.core.springbuilder</name>
-                        </buildCommand>
-                        <buildCommand>
-                            <name>org.eclipse.m2e.core.maven2Builder</name>
-                        </buildCommand>
-                    </additionalBuildcommands>
-                    <additionalProjectnatures>
-                        <projectnature>org.eclipse.jdt.core.javanature</projectnature>
-                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-                        <projectnature>org.eclipse.m2e.core.maven2Nature</projectnature>
-                    </additionalProjectnatures>
+                    <warName>lotus-web</warName>
                 </configuration>
             </plugin>
             <plugin>
@@ -436,11 +427,10 @@
                 <configuration>
                     <server>tomcat-development-server</server>
                     <port>9966</port>
-                    <path>/petclinic</path>
+                    <path>/lotus-web</path>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
-    <url>demopetclinic</url>
 </project>
