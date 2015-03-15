@@ -7,8 +7,10 @@
           <element id="module-output" name="lotus-web" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.3.2" />
           <element id="library" level="project" name="Maven: org.jadira.usertype:usertype.core:3.2.0.GA" />
           <element id="library" level="project" name="Maven: org.jadira.usertype:usertype.spi:3.2.0.GA" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
           <element id="library" level="project" name="Maven: org.glassfish.web:jstl-impl:1.2" />
           <element id="library" level="project" name="Maven: javax.servlet.jsp.jstl:jstl-api:1.2" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-jpa:1.7.1.RELEASE" />
