@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="lotus-web:war exploded">
+    <output-path>$PROJECT_DIR$/target/lotus-web</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="lotus-web" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="C:\Users\johndoe\IdeaProjects\lotus-web\target/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="lotus-web/web/Web" />
+    </root>
+  </artifact>
+</component>
