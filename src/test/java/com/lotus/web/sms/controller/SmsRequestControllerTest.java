@@ -3,6 +3,7 @@ package com.lotus.web.sms.controller;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.net.URLCodec;
 import org.junit.Test;
+import org.mockito.Mock;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,11 +13,23 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
 
 public class SmsRequestControllerTest {
 
+    class A {
+        public void doSth() {
+            System.out.println("test");
+        }
+    }
+
     @Test
-    public void sendSms() {
+    public void should_handle_exception() {
+        A a = new A();
+    }
+
+    @Test
+    public void should_send_sms() {
 
         while (true) {
             HttpURLConnection conn = null;
@@ -37,7 +50,7 @@ public class SmsRequestControllerTest {
                 conn.setDoInput(true);
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
-            conn.setRequestProperty( "Content-Type", "application/x-www-form-urlencoded");
+                conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                 OutputStream outputStream = conn.getOutputStream();
                 outputStream.write(data.getBytes("UTF-8"));
                 final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
